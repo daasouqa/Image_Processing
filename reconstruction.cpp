@@ -31,46 +31,50 @@ int main(int argc, char **argv) {
     bool abime = true;
     
     for (int k = 0; k < iterations; ++k) {
+
         for (int i = 0; i < imageBase.getHeight(); ++i) {
+
             for (int j = 0; j < imageBase.getWidth(); ++j) {
+
                 if (masque[i][j] == 0) {
-                    int max = 0;
+
                     double sum = 0;
                     int n = 0;
-                    if (imageBase[i - 1][j] > 20) {
+
+                    if (masque[i - 1][j] != 0) {
                         sum += imageBase[i - 1][j];
                         n++;
                     }
-                    if (imageBase[i + 1][j] > 20) {
+                    if (masque[i + 1][j] != 0) {
                         sum += imageBase[i + 1][j];
                         n++;
                     }
-                    if (imageBase[i - 1][j - 1] > 20) {
+                    if (masque[i - 1][j - 1] != 0) {
                         sum += imageBase[i - 1][j - 1];
                         n++;
                     }
-                    if (imageBase[i - 1][j + 1] > 20) {
+                    if (masque[i - 1][j + 1] != 0) {
                         sum += imageBase[i - 1][j + 1];
                         n++;
                     }
-                    if (imageBase[i + 1][j + 1] > 20) {
+                    if (masque[i + 1][j + 1] != 0) {
                         sum += imageBase[i + 1][j + 1];
                         n++;
                     }
-                    if (imageBase[i + 1][j - 1] > 20) {
+                    if (masque[i + 1][j - 1] != 0) {
                         sum += imageBase[i + 1][j - 1];
                         n++;
                     }
-                    if (imageBase[i][j - 1] > 20) {
+                    if (masque[i][j - 1] != 0) {
                         sum += imageBase[i][j - 1];
                         n++;
                     }
-                    if (imageBase[i][j + 1] > 20) {
+                    if (masque[i][j + 1] != 0) {
                         sum += imageBase[i][j + 1];
                         n++;
                     }
-                    if (n == 0) n = 1;
-                    out[i][j] = static_cast<unsigned char>(sum / n);
+
+                    if (n != 0) out[i][j] = static_cast<unsigned char>(sum / n);
                 } else {
                     out[i][j] = imageBase[i][j];
                 }
@@ -82,5 +86,6 @@ int main(int argc, char **argv) {
             }
         }
     }
+    
     out.save(cNomImgEcrite);
 }
