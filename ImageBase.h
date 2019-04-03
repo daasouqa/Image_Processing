@@ -3,7 +3,7 @@
 *
 * Fichier : ImageBase.h
 *
-* Description : Classe contennant quelques fonctionnalitÃ©s de base
+* Description : Classe contennant quelques fonctionnalités de base
 *
 * Auteur : Mickael Pinto
 *
@@ -19,59 +19,51 @@
 
 class ImageBase
 {
-    ///////////// Enumerations
+	///////////// Enumerations
 public:
-    typedef enum { PLAN_R, PLAN_G, PLAN_B} PLAN;
-    
-    
-    ///////////// Attributs
+	typedef enum { PLAN_R, PLAN_G, PLAN_B} PLAN;
+
+
+	///////////// Attributs
 protected:
-    unsigned char *data;
-    double *dataD;
-    
-    bool color;
-    int height;
-    int width;
-    int nTaille;
-    bool isValid;
-    
-    
-    ///////////// Constructeurs/Destructeurs
+	unsigned char *data;
+	double *dataD;
+
+	bool color;
+	int height;
+	int width;
+	int nTaille;
+	bool isValid;
+
+
+	///////////// Constructeurs/Destructeurs
 protected:
-    void init();
-    void reset();
+	void init();
+	void reset();
 
 public:
-    ImageBase(void);
-    
-    ImageBase(ImageBase &imageBase);
-    ImageBase(int imWidth, int imHeight, bool isColor);
-    ~ImageBase(void);
-    
-    ///////////// Methodes
+	ImageBase(void);
+	ImageBase(int imWidth, int imHeight, bool isColor);
+	~ImageBase(void);
+	
+	///////////// Methodes
 protected:
-    void copy(const ImageBase &copy);
+	void copy(const ImageBase &copy);
 
 public:
-    void seuillageCouleurs(char *nomImgEcrite, int s_R, int s_G, int s_B);
-    void afficherHistogramme();
-    void afficherHistogrammeCouleurs();
-    void afficherProfil(bool isColonne, int indice);
-    void seuillageTwoLevels(char nomImgEcrite[250], int seuil);
-    void seuillageThreeLevels(char nomImgEcrite[250], int s1, int s2);
-    void seuillageFourLevels(char nomImgEcrite[250], int s1, int s2, int s3);
-    int getHeight() { return height; };
-    int getWidth() { return width; };
-    int getTotalSize() { return nTaille; };
-    int getValidity() { return isValid; };
-    bool getColor() { return color; };
-    unsigned char *getData() { return data; };
-    
-    
-    void load(char *filename);
-    bool save(char *filename);
-    
-    ImageBase *getPlan(PLAN plan);
-    
-    unsigned char *operator[](int l);
+	int getHeight() { return height; };
+	int getWidth() { return width; };
+	int getTotalSize() { return nTaille; };
+	int getValidity() { return isValid; };
+	bool getColor() { return color; };
+	unsigned char *getData() { return data; };
+
+
+	void load(char *filename);
+	bool save(char *filename);
+
+	ImageBase *getPlan(PLAN plan);
+
+	unsigned char *operator[](int l);
 };
+
