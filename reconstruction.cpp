@@ -22,14 +22,14 @@ int main(int argc, char **argv) {
     sscanf(argv[2], "%s", nomMasque);
     sscanf(argv[3], "%s", cNomImgEcrite);
     sscanf(argv[4], "%d", &iterations);
-    
+
     cout << iterations << endl;
     ImageBase imageBase, masque;
     masque.load(nomMasque);
     imageBase.load(cNomImgLue);
     ImageBase out(imageBase.getWidth(), imageBase.getHeight(), imageBase.getColor());
     bool abime = true;
-    
+
     for (int k = 0; k < iterations; ++k) {
         for (int i = 0; i < imageBase.getHeight(); ++i) {
             for (int j = 0; j < imageBase.getWidth(); ++j) {
@@ -37,7 +37,7 @@ int main(int argc, char **argv) {
                     int max = 0;
                     double sum = 0;
                     int n = 0;
-                    
+
                     if (imageBase[i - 1][j] > 0) {
                         sum += imageBase[i - 1][j];
                         n++;
