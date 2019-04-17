@@ -13,7 +13,7 @@ int main(int argc, char **argv) {
     char cNomImgLue[250], cNomImgEcrite[250];
     int seuil;
     if (argc != 4) {
-        printf("Usage: ImageIn.pgm ImageSeuilée.pgm\n");
+        printf("Usage: ImageIn.pgm ImageSeuilée.pgm seuil\n");
         return 1;
     }
     sscanf(argv[1], "%s", cNomImgLue);
