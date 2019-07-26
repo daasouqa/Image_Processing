@@ -34,7 +34,7 @@ int main(int argc, char **argv) {
     
     for (int i = 1; i < imageBase.getHeight() - 1; ++i) {
         for (int j = 1; j < imageBase.getWidth() - 1; ++j) {
-            if (masque[i][j] == 0) {
+            if (masque[i][j] == 255) {
                 int pixel = imageBase[i][j]
                             + imageBase[i - 1][j]
                             + imageBase[i - 1][j - 1]

@@ -33,7 +33,7 @@ int main(int argc, char **argv) {
     for (int k = 0; k < iterations; ++k) {
         for (int i = 0; i < imageBase.getHeight(); ++i) {
             for (int j = 0; j < imageBase.getWidth(); ++j) {
-                if (masque[i][j] == 255) {
+                if (masque[i][j] == 255 && i != 0 && i != imageBase.getHeight() - 1 && j != 0 && j != imageBase.getWidth() - 1) {
                     int max = 0;
                     double sum = 0;
                     int n = 0;
